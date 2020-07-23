@@ -9,7 +9,7 @@ from email.header import Header
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-from lib.user_lib import MAIL, PASSWD
+from lib.user_lib import MAIL_USER, MAIL_PASSWD
 
 
 def post_mail():
@@ -30,9 +30,9 @@ def post_mail():
 
     #发送邮件
     smtp = smtplib.SMTP()
-    smtp.connect(smtp_server,25)
-    smtp.login(MAIL,PASSWD)
-    smtp.sendmail(msg['From'],msg['To'], msg.as_string())
+    smtp.connect(smtp_server, 25)
+    smtp.login(MAIL_USER, MAIL_PASSWD)
+    smtp.sendmail(msg['From'], msg['To'], msg.as_string())
     smtp.quit()
     print("邮件发送成功")
 
@@ -55,10 +55,9 @@ def send_mail():
     filename = r'D:\workspace\webAuto41\report\reoprt-202007201325.html'
     with open(filename, 'r', encoding='utf-8') as f:
         mail_body = f.read()
-        # print(mail_body)
         msg = MIMEText(mail_body, mail_type, 'utf-8')
     msg['Subject'] = Header(subject, 'utf-8')
-
+    # 邮件发送
     smtp = smtplib.SMTP()
     smtp.connect(smtpserver,25)
     smtp.login(username, password)
