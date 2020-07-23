@@ -4,19 +4,18 @@
 # @Time    :2020/7/22 23:15
 # @Author  :Harry
 
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-from email.header import Header
 import smtplib
-from lib.user_lib import MAIL,PASSWD,MAIL_SERVER
+from email.header import Header
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+
+from lib.user_lib import MAIL, PASSWD
+
 
 def post_mail():
     smtp_server = "smtp.l63.com"
-    # user= 'zhr10187@163.com'
-    # passwd = 'SMHPQGMZYJCLHXLG' #163邮箱授权码
-
-    sender = 'Harry<zhr10187@163.com>'  #发送邮箱
-    receiver = 'HR<931665795@qq.com>' #接收邮箱
+    sender = 'Harry<zhr10187@163.com>'  # 发送邮箱
+    receiver = 'HR<931665795@qq.com>'  # 接收邮箱
 
     subject = "Web自动化测试报告"
     mail_body = "<html><head></head><body><h1>hello Email </h1></body</html>"
@@ -41,17 +40,20 @@ def post_mail():
 
 def send_mail():
     '''发送邮件'''
-    #
-    sender ="Harry< %s >" % MAIL
+    # 邮件发送和接收人
+    sender = "Harry< %s >" % MAIL
     receiver = "Z<931665795@qq.com>"
-    subject = "CRMWeb自动化测试报告-2020-02"
-    mail_type = 'html'
     smtpserver = 'smtp.163.com'
+    # 登录的用户名密码
     username = MAIL
     password = PASSWD
+    # 邮件标题
+    subject = "CRMWeb自动化测试报告-2020-02"
+    mail_type = 'html'  # 邮件发送类型：HTML、text、plain
 
+    # 邮件内容
     filename = r'D:\workspace\webAuto41\report\reoprt-202007201325.html'
-    with open(filename,'r',encoding='utf-8') as f:
+    with open(filename, 'r', encoding='utf-8') as f:
         mail_body = f.read()
         # print(mail_body)
         msg = MIMEText(mail_body, mail_type, 'utf-8')
