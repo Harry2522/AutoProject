@@ -18,14 +18,14 @@ class ModifyFlowTestCase(unittest.TestCase):
         self.driver.quit()
 
     def test_modify_flow(self):
-        #登录
+        # 登录
         login = LoginPage(self.driver)
-        assert_login = login.login("tom",'123456')
-        #修改
+        assert_login = login.login("tom", '123456')
+        # 修改
         ucp = UserCenterPage(self.driver)
-        result = ucp.edit_profile('1987','6','8','18911223344')
-        self.assertIn("失败",result)
-        self.assertEqual('tom',assert_login)
+        result = ucp.edit_profile('1987', '6', '8', '18911223344')
+        self.assertIn("成功", result)
+        self.assertEqual('tom', assert_login)
 
 
 if __name__ == '__main__':
