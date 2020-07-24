@@ -4,16 +4,16 @@
 # @Time    :2020/7/22 10:35
 # @Author  :Harry
 import time
+
 from selenium.webdriver.common.by import By
-from driver.browser import chrome_driver
+
 from page.base_page import BasePage
 
 
 class LoginPage(BasePage):
     def __init__(self,driver):
         self.url = "http://192.168.1.241/hdshop/user.php"
-        # self.driver = chrome_driver()
-        # super().__init__()
+
         self.driver= driver
         #元素定位符
         self.locator_username = (By.NAME, 'username')  #用户名输入框
@@ -28,6 +28,7 @@ class LoginPage(BasePage):
     def ele_password(self, passwd): #密码的定位及操作
         # self.driver.find_element(*self.locator_password).send_keys(passwd)
         self.find_element(self.locator_password).send_keys(passwd)
+
     def ele_submit(self):  #登录按钮的定位及操作
         # self.driver.find_element(*self.locator_submit).click()
         self.find_element(self.locator_submit).click()
