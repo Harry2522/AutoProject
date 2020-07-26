@@ -7,12 +7,13 @@ import time
 
 from selenium.webdriver.common.by import By
 
+from lib.path_lib import BASE_URL
 from page.base_page import BasePage
 
 
 class LoginPage(BasePage):
     def __init__(self,driver):
-        self.url = "http://192.168.1.241/hdshop/user.php"
+        self.url = BASE_URL
 
         self.driver= driver
         #元素定位符

@@ -3,10 +3,10 @@ import unittest
 from driver.browser import chrome_driver
 from page.login_page import LoginPage
 
+
 class LoginTestCase(unittest.TestCase):
     def setUp(self):
         self.driver = chrome_driver()
-
     def test_login_a(self):
         '''合法登录'''
         lp = LoginPage(self.driver)

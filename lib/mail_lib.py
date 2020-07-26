@@ -65,20 +65,19 @@ def send_mail():
     mail_type = 'html'  # 邮件发送类型：HTML、text、plain
 
     # 邮件内容
-    filename = r'D:\workspace\webAuto41\report\reoprt-202007201325.html'
-    with open(filename, 'r', encoding='utf-8') as f:
+    file_name = r'D:\workspace\webAuto41\report\reoprt-202007201325.html'
+    with open(file_name, 'r', encoding='utf-8') as f:
         mail_body = f.read()
     body = MIMEText(mail_body, mail_type, 'utf-8')
 
     # 邮件附件
-    file_name = r'D:\workspace\webAuto41\report\reoprt-202007201325.html'
     msg = MIMEMultipart()
     msg.attach(body)
 
     msg['Subject'] = Header(subject, 'utf-8').encode()
     att = MIMEText(open(file_name, 'rb').read(), 'base64', 'utf-8')
     att['Content-Type'] = "application/octet-stream"
-    att['Content-Disposition'] = 'attachment;filename={}'.format(filename)
+    att['Content-Disposition'] = 'attachment;filename={}'.format(file_name)
     msg.attach(att)
 
     # 发送邮件
