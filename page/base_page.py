@@ -8,10 +8,10 @@ import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 
+
 class BasePage():
     '''公共page'''
     def __init__(self,driver):
-        # self.driver = chrome_driver()
         self.driver = driver
 
     def assert_result(self,locator_assert):

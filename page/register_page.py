@@ -4,24 +4,26 @@
 # @Time    :2020/7/22 15:47
 # @Author  :Harry
 import time
+
 from selenium.webdriver.common.by import By
-from driver.browser import chrome_driver
+
+from lib.path_lib import BASE_URL
 from page.base_page import BasePage
 
+
 class RegisterPage(BasePage):
-    def __init__(self):
-        super().__init__()
-        # self.driver=chrome_driver()
-        self.url = "http://192.168.1.241/hdshop/user.php?act=register"
-        self.loc_elem_username = (By.NAME,'username')
+    def __init__(self, driver):
+        self.driver = driver
+        self.url = BASE_URL + "user.php?act=register"
+        self.loc_elem_username = (By.NAME, 'username')
         self.loc_elem_email = (By.NAME, 'email')
         self.loc_elem_passwd = (By.NAME, 'password')
         self.loc_elem_confirm_passwd = (By.NAME, 'confirm_password')
         self.loc_elem_mobile = (By.NAME, 'extend_field5')
         self.loc_elem_submit = (By.NAME, 'Submit')
-        self.locator_assert= (By.XPATH,'//font[@id="ECS_MEMBERZONE"]/a[1]')
+        self.locator_assert = (By.XPATH, '//font[@id="ECS_MEMBERZONE"]/a[1]')
 
-    def elem_username(self,username):
+    def elem_username(self, username):
         self.driver.find_element(*self.loc_elem_username).send_keys(username)
 
     def elem_email(self,email):
@@ -40,7 +42,6 @@ class RegisterPage(BasePage):
         self.driver.find_element(*self.loc_elem_submit).click()
 
     def register(self,username,email,passwd,confirm_passwd,mobile):
-        # self.driver.get(url=self.url)
         self.open(self.url)
         self.elem_username(username)
         self.elem_email(email)

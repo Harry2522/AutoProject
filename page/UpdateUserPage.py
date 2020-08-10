@@ -7,7 +7,6 @@ from page.LoginPage import LoginPage
 
 class UpdateUserPage(LoginPage):
     def __init__(self, driver):
-        # super().__init__() # 这里继承了父类的driver
         self.driver = driver  # driver 从外面传递进来，不要重新实例化
         print("初始化")
 
