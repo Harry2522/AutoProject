@@ -7,8 +7,12 @@ import os
 
 BASE_URL = 'http://437.webjsw.com/'
 # BASE_URL = "http://192.168.1.241/hdshop/"
-BASE_PATH = os.path.dirname(os.getcwd())
+# BASE_PATH = os.path.dirname(os.getcwd())
+# BASE_PATH = os.path.dirname(os.getcwd())
+BASE_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 CASE_PATH = os.path.join(BASE_PATH, 'test_case')
 REPORT_PATH = os.path.join(BASE_PATH, 'report')
 DATA_PATH = os.path.join(BASE_PATH, 'data')
 
+print(CASE_PATH)

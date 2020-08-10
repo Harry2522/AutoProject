@@ -11,6 +11,7 @@ from HTMLTestRunner import HTMLTestRunner
 # 批量执行用例
 from lib.path_lib import REPORT_PATH, CASE_PATH
 
+print(CASE_PATH)
 discover = unittest.defaultTestLoader.discover(start_dir=CASE_PATH,
                                                pattern="test*.py",
                                                top_level_dir=None)
