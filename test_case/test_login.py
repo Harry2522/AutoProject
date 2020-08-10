@@ -12,8 +12,11 @@ class LoginTestCase(unittest.TestCase):
         self.driver = chrome_driver()
 
     @ddt.data(('tom', '23456'))
-    def test_login_a(self, username, passwd):
+    def test_login_a(self, casedata):
         '''合法登录'''
+        print(casedata)
+        username = casedata[0]
+        passwd = casedata[1]
         lp = LoginPage(self.driver)
         actual = lp.login(username, passwd)
         self.assertEqual(username, actual)

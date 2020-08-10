@@ -8,14 +8,15 @@ import time
 import unittest
 from HTMLTestRunner import HTMLTestRunner
 
-#批量执行用例
+# 批量执行用例
+from lib.path_lib import REPORT_PATH, CASE_PATH
 
-discover = unittest.defaultTestLoader.discover(start_dir='test_case',
+discover = unittest.defaultTestLoader.discover(start_dir=CASE_PATH,
                                                pattern="test*.py",
                                                top_level_dir=None)
-time_str = time.strftime("%Y%m%d%H%M",time.localtime())
+time_str = time.strftime("%Y%m%d%H%M%S", time.localtime())
 
-report_name = 'report/reoprt-' + time_str + '.html'
+report_name = REPORT_PATH + '/reoprt-' + time_str + '.html'
 title = "ECShop自动化测试"
 print(report_name)
 with open(report_name, 'wb+') as f:

@@ -13,9 +13,8 @@ from page.base_page import BasePage
 
 class LoginPage(BasePage):
     def __init__(self,driver):
-        self.url = BASE_URL
-
-        self.driver= driver
+        self.url = BASE_URL + "user.php"
+        self.driver = driver
         #元素定位符
         self.locator_username = (By.NAME, 'username')  #用户名输入框
         self.locator_password = (By.NAME, 'password') #密码输入框
