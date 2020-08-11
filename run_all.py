@@ -9,6 +9,7 @@ import unittest
 from HTMLTestRunner import HTMLTestRunner
 
 # 批量执行用例
+from lib.mail_lib import send_mail
 from lib.path_lib import REPORT_PATH, CASE_PATH
 
 print(CASE_PATH)
@@ -27,4 +28,4 @@ with open(report_name, 'wb+') as f:
     runner.run(discover)
 # 发送邮件报告
 #
-# send_mail(mail_title=title, mail_body=report_name, mail_type='html')
+send_mail(mail_title=title, mail_body=report_name, mail_type='html')
